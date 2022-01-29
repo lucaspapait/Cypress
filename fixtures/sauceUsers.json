@@ -1,0 +1,26 @@
+[
+    {
+        "name" : "should login to inventory page",
+        "username" : "standard_user",
+        "password" : "secret_sauce",
+        "expected" : "Products"
+    },
+    {
+        "name" : "should display incorrect usarname message",
+        "username" : "incorrect_user",
+        "password" : "secret_sauce",
+        "expected" : "Products"
+    },
+    {
+        "name" : "should display incorrect password message",
+        "username" : "standard_user",
+        "password" : "secret_sauce",
+        "expected" : "Products"
+    },
+    {
+        "name" : "should login to inventory page",
+        "username" : "standard_user",
+        "password" : "secret_sauce",
+        "expected" : "Products"
+    }
+]
