@@ -49,7 +49,7 @@ describe("Tickets", () => {
         cy.get("#email.invalid").should("not.exist");
     });
 
-    it.only("fills and reset the form", () => {
+    it("fills and reset the form", () => {
         const firstName = "Lucas";
         const lastName = "Papait";
         const fullName = `${firstName} ${lastName}`;
@@ -76,6 +76,25 @@ describe("Tickets", () => {
 
         cy.get("button[type='reset']").click()
 
-        cy.get("@submitButton")
+        cy.get("@submitButton").should("be.disabled")
     });
+        it.only("Filess mandory fields using support command", () => {
+            const customer = {
+                firstName: "João",
+                lastName: "Silva",
+                email: "joãosilve@exemplo.com",
+            };
+
+        cy.fillMandoryFields(customer);
+
+        cy.get("button[type='submit']")
+            .as("submitButton")
+            .should("not.be.disabled");
+
+        cy.get("#agree").uncheck()
+
+        cy.get("@submitButton").should("be.disabled")
+
+
+        });
 });
